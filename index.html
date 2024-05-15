@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabio Rossi - CV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Fabio Rossi</h1>
+        <p>Computer Science and Engineering Student</p>
+        <div class="contact-info">
+            <p><a href="tel:+393805946035">+39 (380) 594 6035</a></p>
+            <p><a href="mailto:fabiorossi352@gmail.com">fabiorossi352@gmail.com</a></p>
+            <p><a href="https://www.linkedin.com/in/fabio-rossi-7a9781252/" target="_blank">linkedin.com/in/fabio-rossi-7a9781252/</a></p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2 class="accordion">Education</h2>
+            <div class="panel">
+                <ul>
+                    <li>Politecnico di Milano, BSc in Computer Science and Engineering | Milano, Italy Sep 2021 - Present</li>
+                    <li>Liceo Scientifico Ettore Majorana | Isernia, Italy Sep 2016 - Jul 2021</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section>
+            <h2 class="accordion">Experience</h2>
+            <div class="panel">
+                <ul>
+                    <li><strong>Politecnico di Milano, PEER TUTOR</strong> | Milan, Italy Jan 2022 - Present
+                        <ul>
+                            <li>Assisted students in the study of foundation of computer science and Geometry and Linear Algebra exams.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Skyward Experimental Rocketry, Logistic department member</strong> | Milan, Italy Sep 2022 - Oct 2023
+                        <ul>
+                            <li>Building and managing relationships with partners.</li>
+                        </ul>
+                    </li>
+                    <li><strong>A.S.D. Vastogirardi, Match Analyst U19 national league</strong> | Vastogirardi, Italy Aug 2019 - Jun 2021
+                        <ul>
+                            <li>Analyzed the matches to emphasize both positive and negative aspects performed by the team.</li>
+                            <li>Prepared training sessions aimed at improving the results.</li>
+                            <li>Managed the morale of the team, helping the first-coach to build the right environment to perform.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section>
+            <h2 class="accordion">Skills</h2>
+            <div class="panel">
+                <ul>
+                    <li>Python, C, Java, Matlab, Julia, Git, Bash, LaTeX</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section>
+            <h2 class="accordion">Projects</h2>
+            <div class="panel">
+                <ul>
+                    <li><strong>Algorithms and Data structures</strong> | Politecnico di Milano Sep 2023
+                        <ul>
+                            <li>Implemented a Management software in C to manage a highway, and the electric vehicles used to traverse it.</li>
+                            <li>Analysed the different computational costs of the functions implemented.</li>
+                            <li>Applied the theory learned during the course.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Introduction to Finite Elements and Algorithms</strong> | Delft University, Athens Programme Nov 2023
+                        <ul>
+                            <li>Implemented a FEM problem using Julia programming language.</li>
+                            <li>Analysed the different computational costs of linear problem resolution algorithms.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Logical networks</strong> | Politecnico di Milano March 2024
+                        <ul>
+                            <li>Implemented using VHDL a logical network that verifies the credibility of data saved in memory.</li>
+                            <li>Applied the theory learned during the course.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section>
+            <h2 class="accordion">Achievements</h2>
+            <div class="panel">
+                <ul>
+                    <li>Best Freshman Award - Politecnico di Milano 2021</li>
+                    <li>National Third Place - Italian Olympiads in Problem Solving 2018</li>
+                    <li>National Finalist - Italian Olympiads in Maths - Teams 2018</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section>
+            <h2 class="accordion">Languages</h2>
+            <div class="panel">
+                <ul>
+                    <li>English C1 Level</li>
+                    <li>Italian Native proficiency</li>
+                    <li>German A1 - studying</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <button id="backToTop" title="Go to top">Top</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const containers = document.querySelectorAll('.container');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            containers.forEach(container => {
+                observer.observe(container);
+            });
+
+            // Accordion functionality
+            const accordions = document.querySelectorAll('.accordion');
+            accordions.forEach(acc => {
+                acc.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            });
+
+            // Back to top functionality
+            const backToTopButton = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
