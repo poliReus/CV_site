@@ -174,7 +174,7 @@ function visualizzaGrafo(percorso) {
             const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
             text.setAttribute("x", (x1 + x2) / 2);
             text.setAttribute("y", y1 - 10);
-            text.setAttribute("fill", "black");
+            text.setAttribute("fill", "white");
             text.setAttribute("font-size", "12");
             text.textContent = maxAutonomia;
 

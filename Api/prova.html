@@ -7,14 +7,60 @@
     <link rel="stylesheet" href="stylesm.css">
 </head>
 <body>
-    <h1>Autostrada Animation</h1>
-    <div class="autostrada" id="autostrada"></div>
-    <div>
-        <button onclick="planRoute()">Pianifica Percorso</button>
+    <header>
+        <h1>Fabio Rossi</h1>
+        <p>Computer Science and Engineering Student</p>
+        <div class="contact-info">
+            <p><a href="tel:+393805946035">+39 (380) 594 6035</a></p>
+            <p><a href="mailto:fabiorossi352@gmail.com">fabiorossi352@gmail.com</a></p>
+            <p><a href="https://www.linkedin.com/in/fabio-rossi-7a9781252/" target="_blank">linkedin.com/in/fabio-rossi-7a9781252/</a></p>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Autostrada Animation</h2>
+        <div class="autostrada" id="autostrada"></div>
+        <div>
+            <button onclick="planRoute()">Pianifica Percorso</button>
+        </div>
+        <div class="grafo" id="grafo">
+            <svg id="grafo-svg" width="100%" height="100%"></svg>
+        </div>
     </div>
-    <div class="grafo" id="grafo">
-        <svg id="grafo-svg" width="100%" height="100%"></svg>
-    </div>
+
+    <button id="backToTop" title="Go to top">Top</button>
+
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const containers = document.querySelectorAll('.container');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            containers.forEach(container => {
+                observer.observe(container);
+            });
+
+            // Back to top functionality
+            const backToTopButton = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
