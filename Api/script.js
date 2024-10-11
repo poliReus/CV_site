@@ -133,6 +133,8 @@ function planRoute() {
 function visualizzaGrafo(percorso) {
     const grafo = document.getElementById('grafo');
     const svg = document.getElementById('grafo-svg');
+    const nodi = grafo.querySelectorAll('.nodo');
+    nodi.forEach(nodo => nodo.remove());
     svg.innerHTML = `
         <defs>
             <marker id="arrowhead" markerWidth="10" markerHeight="7" 
